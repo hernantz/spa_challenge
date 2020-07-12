@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  frontend:
+    env_file: .env.dev
+    image: spa_challenge_frontend
+    build:
+      context: .
+    volumes:
+      - ./:/opt/app
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    working_dir: /opt/app
+    entrypoint: yarn
+    command: start
